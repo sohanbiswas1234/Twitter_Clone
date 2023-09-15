@@ -1,0 +1,90 @@
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Details</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+   <link rel="stylesheet" href="css/register.css"> 
+</head>
+<style>
+  .b
+  {
+    display:flex;
+    justify-content: space-between;
+  }
+  .zz
+  {
+    color: black;
+    font-size: 22px;
+    font-family : 'Courier New', Courier, monospace;
+    align-content: left;
+  }
+  .rounded-circle img-fluid
+  {
+    padding-top: 25%;
+    align-items: center;
+  }
+  .z
+  {
+    padding-left: 5cm;
+    padding-top: 3cm;
+  }
+  .container
+  {
+    padding-top: 1cm;
+  }
+  .alert
+  {
+    padding-top: 2%;
+  }
+ 
+</style>
+<body class="b">
+  <div class="z">
+    <img  class="rounded-circle img-fluid"  style="width: 300px" style="height:40cm" src="/pic/Twitter-Symbol.png">
+ <b><i> <center><font class="zz">Use twitter to get the latest updates <br>and promotions from brands; <br>communicate with friends; <br>and follow business leaders, <br>politicians and celebrities.<br></font></center></i></b>
+  </div>
+
+<div class="container">
+	<div class="screen">
+		<div class="screen__content">
+			<form class="login" action="/register" method="post">
+				<div class="login__field">
+					<i class="login__icon fas fa-user"></i>
+         
+					<input type="text" class="login__input"  name="first_name" placeholder=" Fullname" maxlength="16">
+				</div>
+        <div class="login__field">
+					<i class="login__icon fas fa-user"></i>
+					<input type="email" class="login__input" name="mail" placeholder=" Email" required>
+				</div>
+        <div class="login__field">
+					<i class="login__icon fas fa-user"></i>
+					<input type="text" class="login__input"  name="mobile" placeholder="Phone Number" maxlength="10" required>
+				</div>
+				<div class="login__field">
+					<i class="login__icon fas fa-lock"></i>
+					<input type="password" class="login__input" name="password" placeholder="Password" maxlength="12" required>
+				</div>
+				<button class="button login__submit">
+					<span class="button__text">Sign Up Now</span>
+					<i class="button__icon fas fa-chevron-right"></i>
+				</button>	
+        <%if(!isvalid){%>
+          <div class="alert alert-danger alert-dismissible">
+            <span class="button__text">  <strong>Email id already exist!</strong></span>
+          </div>
+          <%}%>			
+      </div>
+      
+    </form>
+		<div class="screen__background">
+			<span class="screen__background__shape screen__background__shape4"></span>
+			<span class="screen__background__shape screen__background__shape3"></span>		
+			<span class="screen__background__shape screen__background__shape2"></span>
+			<span class="screen__background__shape screen__background__shape1"></span>
+		</div>		
+	</div>
+</div>
+<%- include('partials/header') %>
