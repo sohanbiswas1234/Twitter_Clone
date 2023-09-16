@@ -16,20 +16,20 @@ app.use(bodyparser.urlencoded({extented:true}));
 
 
 var i=0;
-var name5='';
-let Email='';
-let error='';
-let Name='';
-let email2='';
+var name5;
+let Email;
+let error;
+let Name;
+let email2;
 let mobile_no;
 let today1;
 let act_time;
-let Password='';
+let Password;
 let id;
 let arr=[];
-let Symbol='';
+let Symbol;
 
-var token=''
+var token='';
 
  mongoose.connect("mongodb+srv://sohan2002biswas:Deep1234@cluster0.5jyx4ue.mongodb.net/twitter-clone");
 
@@ -198,7 +198,7 @@ app.post('/tokenValidation',(req,res)=>{
             'id':id,
             'email':email2
         })
-    // AB YAHA PE ID EMAIL SE DATA FIND KAR KE ROUTE KARA LENA
+
     } catch (err) {
         console.log(err)
         res.json({
@@ -389,7 +389,7 @@ setInterval(function()
     // let act_date=date.substring(0,10);
     act_time=time.substring(0,5);
     // console.log(act_date);
-    console.log(act_time);
+   // console.log(act_time);
 },10000)
 
 app.listen(3000,function()
