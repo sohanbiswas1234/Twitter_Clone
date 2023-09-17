@@ -149,10 +149,10 @@ button:hover, a:hover {
                           
                         </tr>
                       </thead>
-                     
+                          <%let temp=0%>
                       <tbody>
                         <%nooflist.forEach(function(data){%>               
-            
+                           <%if(data.email!=email){%>
                           <tr>
                           <% no++ %>
                           <th scope="row"><%= no %></th>
@@ -163,21 +163,34 @@ button:hover, a:hover {
                               <%}%>
                             <%for(let arr of array1){%>                              
                               <%if (arr==data.email) {%>
-                            <td>
-                            <form action="/follow" method="post">
-                            <button type="submit" class="btn btn-danger" name="follow" value=<%= data.email%> onChange="this.form.submit">Added</button>
-                            </form>
-                            </td>
-                            <td>
-                              <form action="/unfollow" method="post">
-                              <button type="submit" class="btn btn-success ms-1" name="unfollow" value=<%= data.email%> onChange="this.form.submit">Unfollow</button>
-                              </form>
-                        
+                           
+                            <%temp=1%>
           
-                            </td>
+                            
                             <%break%>
                           <%}else{%>
-                            <td>
+                            
+                              <%temp=0%>
+
+                              <%}%>
+                          <%}%>
+              
+                          
+                         
+                        
+                        
+                        <%if(temp==1){%>
+                         <td>
+                          <form action="/follow" method="post">
+                          <button type="submit" class="btn btn-danger" name="follow" value=<%= data.email%> onChange="this.form.submit">Added</button>
+                          </form>
+                          </td>
+                          <td>
+                            <form action="/unfollow" method="post">
+                            <button type="submit" class="btn btn-success ms-1" name="unfollow" value=<%= data.email%> onChange="this.form.submit">Unfollow</button>
+                            </form></td>
+                          <%}else{%>
+                          <td>
                             <form action="/follow" method="post">
                               <button type="submit" class="btn btn-danger" name="follow" value=<%= data.email%> onChange="this.form.submit">follow</button>
                               </form>
@@ -187,17 +200,14 @@ button:hover, a:hover {
                                 <button type="submit" class="btn btn-success ms-1" name="unfollow" value=<%= data.email%> onChange="this.form.submit">Unfollow</button>
                                 </form>
                           
+                                 
             
                               </td>
-
-                              <%}%>
                           <%}%>
-              
-                          
-                         
-                        </tr>
+                          <%}%>
+
                         <%})%>
-              
+                      </tr>
                       </tbody>
                       </div>
                     </table>
